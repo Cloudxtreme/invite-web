@@ -1,0 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+body {
+  background: #282b2f;
+  color: #9d9fa3;
+}
+* {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 360px;
+  margin-left: -250px;
+  margin-top: -180px;
+}
+.container img {
+  width: 240px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: -40px;
+}
+.container h1,
+.container h2 {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+.container h1 {
+  font-size: 34px;
+}
+.container h2 {
+  font-size: 20px;
+}
+.welcome form {
+  display: block;
+  height: 46px;
+  width: 356px;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+.welcome input {
+  height: 46px;
+  width: 300px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: .2rem;
+  background: #33373c;
+  border: 0;
+  box-shadow: none;
+  color: #cccbd0;
+  margin: 0px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+}
+.welcome input::-moz-placeholder {
+  color: #9D9FA3;
+  opacity: 1;
+}
+.welcome input:-ms-input-placeholder {
+  color: #9D9FA3;
+}
+.welcome input::-webkit-input-placeholder {
+  color: #9D9FA3;
+}
+.welcome button {
+  height: 46px;
+  font-family: "FontAwesome";
+  background-color: #3bbadc;
+  box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
+  color: #FFF;
+  border-radius: .2rem;
+  border: 0;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: 0px;
+  margin-left: 10px;
+  margin-top: -3px;
+}
