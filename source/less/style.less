@@ -30,7 +30,7 @@ body {
 		margin-bottom: -40px;
 	}
 
-	h1, h2 {
+	h1, h2, h3 {
 		margin: 0px;
 		padding: 0px;
 		text-align: center;
@@ -41,11 +41,15 @@ body {
 	}
 
 	h2 {
+		font-size: 23px;
+	}
+
+	h3 {
 		font-size: 20px;
 	}
 }
 
-.welcome {
+.welcome, .create {
 	form {
 		display: block;
 		height: 46px;
@@ -56,7 +60,6 @@ body {
 
 	input {
 		height: 46px;
-		width: 300px;
 
 		padding: 10px 16px;
 		font-size: 18px;
@@ -74,6 +77,9 @@ body {
 		padding-right: 16px;
 		padding-top: 10px;
 
+		&[readonly="readonly"], &[readonly] {
+			opacity: 0.6;
+		}
 	}
 
 	input::-moz-placeholder {
@@ -90,9 +96,6 @@ body {
 	}
 
 	button {
-		height: 46px;
-
-		font-family: "FontAwesome";
 		background-color: #3bbadc;
 		box-shadow: 0 0 6px 6px rgba(0,0,0,.1);
 		color: #FFF;
@@ -108,7 +111,36 @@ body {
 		white-space: nowrap;
 		margin: 0px;
 
+		&:disabled {
+			opacity: 0.6;
+		}
+	}
+}
+
+.welcome {
+	input {
+		width: 300px;
+	}
+
+	button {
+		height: 46px;
+		width: 46px;
+
+		font-family: "FontAwesome";
+
 		margin-left: 10px;
 		margin-top: -3px;
+	}
+}
+
+.create {
+	input {
+		width: 346px;
+		margin-bottom: 18px;
+	}
+
+	button {
+		width: 346px;
+		height: 46px;
 	}
 }

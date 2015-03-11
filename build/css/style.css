@@ -24,7 +24,8 @@ body {
   margin-bottom: -40px;
 }
 .container h1,
-.container h2 {
+.container h2,
+.container h3 {
   margin: 0px;
   padding: 0px;
   text-align: center;
@@ -33,18 +34,22 @@ body {
   font-size: 34px;
 }
 .container h2 {
+  font-size: 23px;
+}
+.container h3 {
   font-size: 20px;
 }
-.welcome form {
+.welcome form,
+.create form {
   display: block;
   height: 46px;
   width: 356px;
   margin: 0 auto;
   margin-top: 15px;
 }
-.welcome input {
+.welcome input,
+.create input {
   height: 46px;
-  width: 300px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
@@ -59,19 +64,27 @@ body {
   padding-right: 16px;
   padding-top: 10px;
 }
-.welcome input::-moz-placeholder {
+.welcome input[readonly="readonly"],
+.create input[readonly="readonly"],
+.welcome input[readonly],
+.create input[readonly] {
+  opacity: 0.6;
+}
+.welcome input::-moz-placeholder,
+.create input::-moz-placeholder {
   color: #9D9FA3;
   opacity: 1;
 }
-.welcome input:-ms-input-placeholder {
+.welcome input:-ms-input-placeholder,
+.create input:-ms-input-placeholder {
   color: #9D9FA3;
 }
-.welcome input::-webkit-input-placeholder {
+.welcome input::-webkit-input-placeholder,
+.create input::-webkit-input-placeholder {
   color: #9D9FA3;
 }
-.welcome button {
-  height: 46px;
-  font-family: "FontAwesome";
+.welcome button,
+.create button {
   background-color: #3bbadc;
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
   color: #FFF;
@@ -86,6 +99,26 @@ body {
   cursor: pointer;
   white-space: nowrap;
   margin: 0px;
+}
+.welcome button:disabled,
+.create button:disabled {
+  opacity: 0.6;
+}
+.welcome input {
+  width: 300px;
+}
+.welcome button {
+  height: 46px;
+  width: 46px;
+  font-family: "FontAwesome";
   margin-left: 10px;
   margin-top: -3px;
+}
+.create input {
+  width: 346px;
+  margin-bottom: 18px;
+}
+.create button {
+  width: 346px;
+  height: 46px;
 }
