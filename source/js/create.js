@@ -2,11 +2,29 @@ var React  = require("react");
 var Router = require("react-router");
 var http   = require("http");
 
+function validateEmail(email) {
+	var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return re.test(email);
+}
+
+function validateUsername(name) {
+	var re = /^[a-zA-Z0-9\.]+$/;
+	return !(name.length > 31 || name.length < 2 || !re.test(name));
+}
+
 module.exports = React.createClass({
 	mixins: [Router.State],
 
 	setButtonState: function(b) {
 		this.refs.submit.getDOMNode().disabled = !b;
+	},
+	setInputState: function(input, b) {
+		var node = this.refs[input].getDOMNode();
+		if (!node.value) {
+			b = true;
+		}
+
+		node.className = b ? "valid" : "invalid";
 	},
 
 	getInitialState: function() {
@@ -36,15 +54,42 @@ module.exports = React.createClass({
 				// Put the result into the state
 				self.setState({token: result});
 
-				if (!!self.state.token.name && !!self.state.token.email) {
-					self.setButtonState(true);
-				} else {
-					self.setButtonState(false);
-				}
+				// Update the button
+				self.updateValidation();
 			});
 		}).end(JSON.stringify({
 			"token": params.token,
 		}));
+	},
+
+	updateValidation: function() {
+		var nameInput = this.refs.username.getDOMNode();
+		var emailInput = this.refs.email.getDOMNode();
+
+		var username = nameInput.value;
+		var email = emailInput.value;
+
+		var valid = true;
+		if (!validateUsername(username)) {
+			valid = false;
+			this.setInputState("username", false);
+		} else {
+			this.setInputState("username", true);
+		}
+
+		if (!validateEmail(email)) {
+			valid = false;
+			this.setInputState("email", false);
+		} else {
+			this.setInputState("email", true);
+		}
+
+		if (!valid) {
+			this.setButtonState(false);
+			return;
+		}
+
+		this.setButtonState(true);
 	},
 
 	render: function() {
@@ -60,14 +105,14 @@ module.exports = React.createClass({
 
 				<form onSubmit={this.handleSubmit}>
 					<input ref="username" type="text" placeholder="username"
-						maxLength="32" onInput={this.usernameChange}
-						onPropertyChange={this.usernameChange}
+						maxLength="32" onInput={this.updateValidation}
+						onPropertyChange={this.updateValidation}
 						value={this.state.token.name}
 						readOnly={!!this.state.token.name} />
 					<input ref="email" type="email" maxLength="32"
 						placeholder="alternative e-mail address"
-						onInput={this.emailChange}
-						onPropertyChange={this.emailChange}
+						onInput={this.updateValidation}
+						onPropertyChange={this.updateValidation}
 						value={this.state.token.email}
 						readOnly={!!this.state.token.email} />
 					<button ref="submit" type="submit" disabled>
