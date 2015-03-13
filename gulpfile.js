@@ -8,6 +8,8 @@ var uglify       = require("gulp-uglify");
 var connect      = require("gulp-connect");
 var path         = require("path");
 var less         = require("gulp-less");
+var sourcemaps   = require("gulp-sourcemaps");
+
 
 gulp.task("browserify", function() {
 	return browserify('./source/js/app.js')
@@ -15,7 +17,9 @@ gulp.task("browserify", function() {
 		.bundle()
 		.pipe(source('invite.js'))
 		.pipe(buffer())
+		.pipe(sourcemaps.init())
 		.pipe(uglify())
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./build/js/'));
 });
 

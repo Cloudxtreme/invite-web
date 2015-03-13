@@ -12,6 +12,27 @@ function validateUsername(name) {
 	return !(name.length > 31 || name.length < 2 || !re.test(name));
 }
 
+function checkFree(token, username, email, callback) {
+	http.request({
+		method: "POST",
+		path:   "/free",
+		host:   "127.0.0.1",
+		port:   8000,
+	}, function(res) {
+		var buffer = "";
+		res.on("data", function(buf) { buffer += buf; });
+
+		res.on("end", function() {
+			var result = JSON.parse(buffer);
+			callback(result);
+		});
+	}).end(JSON.stringify({
+		"token":    token,
+		"username": username,
+		"email":    email,
+	}));
+}
+
 module.exports = React.createClass({
 	mixins: [Router.State],
 
@@ -65,8 +86,10 @@ module.exports = React.createClass({
 	},
 
 	updateValidation: function() {
-		var nameInput = this.refs.username.getDOMNode();
-		var emailInput = this.refs.email.getDOMNode();
+		var self = this;
+
+		var nameInput = self.refs.username.getDOMNode();
+		var emailInput = self.refs.email.getDOMNode();
 
 		var username = nameInput.value;
 		var email = emailInput.value;
@@ -74,30 +97,33 @@ module.exports = React.createClass({
 		var valid = true;
 		if (!validateUsername(username)) {
 			valid = false;
-			this.setInputState("username", false);
-		} else {
-			this.setInputState("username", true);
-		}
+			self.setInputState("username", false);
+		} 
 
 		if (!validateEmail(email)) {
 			valid = false;
-			this.setInputState("email", false);
-		} else {
-			this.setInputState("email", true);
-		}
+			self.setInputState("email", false);
+		} 
 
 		if (!valid) {
-			this.setButtonState(false);
+			self.setButtonState(false);
 			return;
 		}
 
-		this.setButtonState(true);
+		checkFree(this.getParams().token, username, email, function(result) {
+			if (result.success) {
+				self.setInputState("username", true);
+				self.setInputState("email", true);
+				self.setButtonState(true);
+			} else {
+				self.setInputState("username", !result.username_taken);
+				self.setInputState("email", !result.email_used);
+				self.setButtonState(false);
+			}
+		});
 	},
 
 	render: function() {
-		var params = this.getParams();
-		var query  = this.getQuery();
-
 		return (
 			<div className="create">
 				<h2>
