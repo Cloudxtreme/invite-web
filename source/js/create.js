@@ -31,6 +31,8 @@ module.exports = React.createClass({
 		return {token: {}};
 	},
 	componentDidMount: function() {
+		this.props.stateCallback("container-create");
+
 		// We shouldn't really query it twice, but I'm not sure how should
 		// I accomplish this without setting up a whole event system. 
 
@@ -92,9 +94,6 @@ module.exports = React.createClass({
 		this.setButtonState(true);
 	},
 
-	componentDidMount: function() {
-		this.props.stateCallback("container-create");
-	},
 	render: function() {
 		var params = this.getParams();
 		var query  = this.getQuery();
