@@ -92,6 +92,9 @@ module.exports = React.createClass({
 		this.setButtonState(true);
 	},
 
+	componentDidMount: function() {
+		this.props.stateCallback("container-create");
+	},
 	render: function() {
 		var params = this.getParams();
 		var query  = this.getQuery();

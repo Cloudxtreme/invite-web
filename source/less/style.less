@@ -11,17 +11,34 @@ body {
 	box-sizing: border-box;
 }
 
-@container-width: 500px;
-@container-height: 360px;
+@welcome-width: 500px;
+@welcome-height: 360px;
+.container-welcome {
+	width: @welcome-width;
+	height: @welcome-height;
+	margin-left: -@welcome-width/2;
+	margin-top: -@welcome-height/2;
+}
+
+@create-width: 500px;
+@create-height: 470px;
+.container-create {
+	width: @create-width;
+	height: @create-height;
+	margin-left: -@create-width/2;
+	margin-top: -@create-height/2;
+}
 
 .container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: @container-width;
-	height: @container-height;
-	margin-left: -@container-width/2;
-	margin-top: -@container-height/2;
+
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	
 
 	img {
 		width: 240px;

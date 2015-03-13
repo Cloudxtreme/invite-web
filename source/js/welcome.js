@@ -77,6 +77,10 @@ module.exports = React.createClass({
 			}));
 		}
 	},
+
+	componentDidMount: function() {
+		this.props.stateCallback("container-welcome");
+	},
 	render: function() {
 		return (
 			<div className="welcome">

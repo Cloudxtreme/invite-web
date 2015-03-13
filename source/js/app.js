@@ -10,12 +10,16 @@ var Welcome = require("./welcome");
 var Create  = require("./create");
 
 var App = React.createClass({
+	stateCallback: function(c) {
+		this.refs.container.getDOMNode().className = "container " + c;
+	},
+
 	render: function() {
 		return (
-			<div className="container">
+			<div ref="container" className="container">
 				<img src="http://i.imgur.com/1tSa6U6.png" />
 				
-				<RouteHandler />
+				<RouteHandler stateCallback={this.stateCallback} />
 			</div>
 		);
 	}
@@ -29,5 +33,5 @@ var routes = (
 );
 
 Router.run(routes, function (Handler) {
-	React.render(<Handler/>, document.body);
+	React.render(<Handler />, document.body);
 });
