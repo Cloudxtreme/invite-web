@@ -122,6 +122,34 @@ module.exports = React.createClass({
 			}
 		});
 	},
+	handleSubmit: function(e) {
+		e.preventDefault();
+
+		var username = this.refs.username.getDOMNode().value;
+
+		http.request({
+			method: "POST",
+			path: "/create",
+			host: "127.0.0.1",
+			port: 8000,
+		}, function(res) {
+			// Gather the response
+			var buffer = "";
+			res.on("data", function(buf) { buffer += buf; });
+
+			res.on("end", function() {
+				// Parse the buffer
+				var result = JSON.parse(buffer);
+
+				// Change window's location
+				window.location = "https://mail.lavaboom.com/verifyInvite/" + username + "/" + result.code;
+			})
+		}).end(JSON.stringify({
+			"token":    this.getParams().token,
+			"username": username,
+			"email":    this.refs.email.getDOMNode().value,
+		}));
+	},
 
 	render: function() {
 		return (
@@ -137,7 +165,7 @@ module.exports = React.createClass({
 						onPropertyChange={this.updateValidation}
 						value={this.state.token.name}
 						readOnly={!!this.state.token.name} />
-					<input ref="email" type="email" maxLength="32"
+					<input ref="email" type="email" maxLength="48"
 						placeholder="alternative e-mail address"
 						onInput={this.updateValidation}
 						onPropertyChange={this.updateValidation}
