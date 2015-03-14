@@ -51,8 +51,7 @@ module.exports = React.createClass({
 			http.request({
 				method: "POST",
 				path: "/check",
-				host: "127.0.0.1",
-				port: 8000,
+				host: "api.invite.lavaboom.com",
 			}, function(res) {
 				// Gather the response
 				var buffer = "";
