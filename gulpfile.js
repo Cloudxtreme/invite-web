@@ -37,6 +37,11 @@ gulp.task('less', function() {
 		.pipe(gulp.dest('./build/css'));
 });
 
+gulp.task('images', function() {
+	return gulp.src('./source/img/**/*')
+		.pipe(gulp.dest("./build/img"));
+});
+
 gulp.task('serve', function() {
 	connect.server({
 		root:       'build',
@@ -47,9 +52,10 @@ gulp.task('serve', function() {
 gulp.task('watch', function() {
 	gulp.watch('./source/js/**/*.js', ['browserify']);
 	gulp.watch('./source/less/**/*.less', ['less']);
+	gulp.watch('./source/img/**/*', ['images']);
 	gulp.watch('./source/**/*.html', ['html']);
 });
 
 gulp.task('build', ['browserify', 'html']);
 
-gulp.task('default', ['watch', 'browserify', 'html', 'less', 'serve']);
+gulp.task('default', ['watch', 'browserify', 'html', 'less', 'images', 'serve']);

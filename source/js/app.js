@@ -17,7 +17,7 @@ var App = React.createClass({
 	render: function() {
 		return (
 			<div ref="container" className="container">
-				<img src="http://i.imgur.com/1tSa6U6.png" />
+				<img src="/img/logo.svg" />
 				
 				<RouteHandler stateCallback={this.stateCallback} />
 			</div>
