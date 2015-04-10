@@ -1,5 +1,5 @@
-FROM kyma/docker-nginx
+FROM lavab/bati-nginx
 
 ADD build/ /var/www
 
-CMD 'nginx'
+CMD 'nohup bati && nginx'
