@@ -1,6 +1,6 @@
 FROM lavab/bati-nginx
 
 ADD build/ /var/www
-ADD start.sh /usr/bin
+ADD start.sh /
 
-CMD /usr/bin/start.sh
+CMD /start.sh
