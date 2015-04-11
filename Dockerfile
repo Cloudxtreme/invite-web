@@ -1,5 +1,6 @@
 FROM lavab/bati-nginx
 
 ADD build/ /var/www
+ADD start.sh /usr/bin
 
-CMD 'nohup bati && nginx'
+CMD /usr/bin/start.sh
