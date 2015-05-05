@@ -10,14 +10,20 @@ body {
 }
 .container-welcome {
   width: 500px;
-  height: 360px;
+  height: 470px;
   margin-left: -250px;
-  margin-top: -180px;
+  margin-top: -235px;
 }
 .container-create {
   width: 500px;
   height: 470px;
   margin-left: -250px;
+  margin-top: -235px;
+}
+.container-auth {
+  width: 356px;
+  height: 470px;
+  margin-left: -178px;
   margin-top: -235px;
 }
 .container {
@@ -51,17 +57,8 @@ body {
 .container h3 {
   font-size: 20px;
 }
-.welcome form,
-.create form {
-  display: block;
-  height: 46px;
-  width: 356px;
-  margin: 0 auto;
-  margin-top: 15px;
-}
-.welcome input,
-.create input {
-  height: 46px;
+input {
+  height: 43px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
@@ -80,31 +77,24 @@ body {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.welcome input[readonly="readonly"],
-.create input[readonly="readonly"],
-.welcome input[readonly],
-.create input[readonly] {
+input[readonly="readonly"],
+input[readonly] {
   opacity: 0.6;
 }
-.welcome input.invalid,
-.create input.invalid {
+input.invalid {
   box-shadow: 0 0 6px 6px rgba(255, 0, 0, 0.1);
 }
-.welcome input::-moz-placeholder,
-.create input::-moz-placeholder {
-  color: #9D9FA3;
+input::-moz-placeholder {
+  color: #596066;
   opacity: 1;
 }
-.welcome input:-ms-input-placeholder,
-.create input:-ms-input-placeholder {
-  color: #9D9FA3;
+input:-ms-input-placeholder {
+  color: #596066;
 }
-.welcome input::-webkit-input-placeholder,
-.create input::-webkit-input-placeholder {
-  color: #9D9FA3;
+input::-webkit-input-placeholder {
+  color: #596066;
 }
-.welcome button,
-.create button {
+button {
   background-color: #3bbadc;
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
   color: #FFF;
@@ -120,19 +110,31 @@ body {
   white-space: nowrap;
   margin: 0px;
 }
-.welcome button:disabled,
-.create button:disabled {
+button:disabled {
   opacity: 0.6;
 }
+.welcome form,
+.create form {
+  display: block;
+  width: 356px;
+  margin: 0 auto;
+  margin-top: 15px;
+}
 .welcome input {
-  width: 300px;
+  width: 100%;
 }
 .welcome button {
-  height: 46px;
-  width: 46px;
-  font-family: "FontAwesome";
-  margin-left: 10px;
-  margin-top: -3px;
+  height: 43px;
+  width: 100%;
+  margin-top: 15px;
+}
+.welcome .noInvite {
+  text-align: center;
+  margin-top: 15px;
+}
+.welcome .noInvite a {
+  color: #32a4c1;
+  font-size: 16px;
 }
 .create input {
   width: 346px;
@@ -140,5 +142,11 @@ body {
 }
 .create button {
   width: 346px;
-  height: 46px;
+  height: 43px;
+}
+.container-auth input,
+.container-auth button {
+  width: 100%;
+  display: block;
+  margin-top: 10px;
 }

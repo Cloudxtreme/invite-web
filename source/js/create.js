@@ -16,7 +16,8 @@ function checkFree(token, username, email, callback) {
 	http.request({
 		method: "POST",
 		path:   "/free",
-		host:   "api.invite.lavaboom.com",
+		host:   "localhost",
+		port:   8000,
 	}, function(res) {
 		var buffer = "";
 		res.on("data", function(buf) { buffer += buf; });
@@ -62,7 +63,8 @@ module.exports = React.createClass({
 		http.request({
 			method: "POST",
 			path:   "/check",
-			host:   "api.invite.lavaboom.com",
+			host:   "localhost",
+			port:   8000,
 		}, function(res) {
 			// Gather the response
 			var buffer = "";
@@ -128,7 +130,8 @@ module.exports = React.createClass({
 		http.request({
 			method: "POST",
 			path: "/create",
-			host: "api.invite.lavaboom.com",
+			host: "localhost",
+			port:   8000,
 		}, function(res) {
 			// Gather the response
 			var buffer = "";

@@ -12,7 +12,7 @@ body {
 }
 
 @welcome-width: 500px;
-@welcome-height: 360px;
+@welcome-height: 470px;
 .container-welcome {
 	width: @welcome-width;
 	height: @welcome-height;
@@ -27,6 +27,15 @@ body {
 	height: @create-height;
 	margin-left: -@create-width/2;
 	margin-top: -@create-height/2;
+}
+
+@auth-width: 356px;
+@auth-height: 470px;
+.container-auth {
+	width: @auth-width;
+	height: @auth-height;
+	margin-left: -@auth-width/2;
+	margin-top: -@auth-height/2;
 }
 
 .container {
@@ -65,96 +74,102 @@ body {
 	}
 }
 
+input {
+	height: 43px;
+
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.3333333;
+	border-radius: .2rem;
+	background: #33373c;
+	border: 0;
+	box-shadow: none;
+	color: #cccbd0;
+
+	margin: 0px;
+
+	padding-bottom: 10px;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 10px;
+
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+
+	&[readonly="readonly"], &[readonly] {
+		opacity: 0.6;
+	}
+
+	&.invalid {
+		box-shadow: 0 0 6px 6px rgba(255, 0, 0, .1);
+	}
+}
+
+input::-moz-placeholder {
+	color: #596066;
+	opacity: 1;
+}
+
+input:-ms-input-placeholder {
+	color: #596066;
+}
+
+input::-webkit-input-placeholder {
+	color: #596066;
+}
+
+button {
+	background-color: #3bbadc;
+	box-shadow: 0 0 6px 6px rgba(0,0,0,.1);
+	color: #FFF;
+	border-radius: .2rem;
+	border: 0;
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.3333333;
+	text-align: center;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	white-space: nowrap;
+	margin: 0px;
+
+	&:disabled {
+		opacity: 0.6;
+	}
+}
+
 .welcome, .create {
 	form {
 		display: block;
-		height: 46px;
 		width: 356px; 
 		margin: 0 auto;
 		margin-top: 15px;
-	}
-
-	input {
-		height: 46px;
-
-		padding: 10px 16px;
-		font-size: 18px;
-		line-height: 1.3333333;
-		border-radius: .2rem;
-		background: #33373c;
-		border: 0;
-		box-shadow: none;
-		color: #cccbd0;
-
-		margin: 0px;
-
-		padding-bottom: 10px;
-		padding-left: 16px;
-		padding-right: 16px;
-		padding-top: 10px;
-
-		-webkit-transition: all 0.5s ease;
-		-moz-transition: all 0.5s ease;
-		-o-transition: all 0.5s ease;
-		transition: all 0.5s ease;
-
-		&[readonly="readonly"], &[readonly] {
-			opacity: 0.6;
-		}
-
-		&.invalid {
-			box-shadow: 0 0 6px 6px rgba(255, 0, 0, .1);
-		}
-	}
-
-	input::-moz-placeholder {
-		color: #9D9FA3;
-		opacity: 1;
-	}
-
-	input:-ms-input-placeholder {
-		color: #9D9FA3;
-	}
-
-	input::-webkit-input-placeholder {
-		color: #9D9FA3;
-	}
-
-	button {
-		background-color: #3bbadc;
-		box-shadow: 0 0 6px 6px rgba(0,0,0,.1);
-		color: #FFF;
-		border-radius: .2rem;
-		border: 0;
-		padding: 10px 16px;
-		font-size: 18px;
-		line-height: 1.3333333;
-		text-align: center;
-		vertical-align: middle;
-		touch-action: manipulation;
-		cursor: pointer;
-		white-space: nowrap;
-		margin: 0px;
-
-		&:disabled {
-			opacity: 0.6;
-		}
 	}
 }
 
 .welcome {
 	input {
-		width: 300px;
+		width: 100%;
 	}
 
 	button {
-		height: 46px;
-		width: 46px;
+		height: 43px;
+		width: 100%;
 
-		font-family: "FontAwesome";
+		margin-top: 15px;
+	}
 
-		margin-left: 10px;
-		margin-top: -3px;
+	.noInvite {	
+		text-align: center;
+		margin-top: 15px;
+
+		a {
+			color: #32a4c1;
+			font-size: 16px;
+		}	
 	}
 }
 
@@ -166,6 +181,14 @@ body {
 
 	button {
 		width: 346px;
-		height: 46px;
+		height: 43px;
+	}
+}
+
+.container-auth {
+	input, button {
+		width: 100%;
+		display: block;
+		margin-top: 10px;
 	}
 }

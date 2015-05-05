@@ -51,7 +51,8 @@ module.exports = React.createClass({
 			http.request({
 				method: "POST",
 				path: "/check",
-				host: "api.invite.lavaboom.com",
+				host: "127.0.0.1",
+				port: 8000,
 			}, function(res) {
 				// Gather the response
 				var buffer = "";
@@ -83,17 +84,20 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="welcome">
-				<h1>Welcome to Lavaboom!</h1>
-				<h3>Please type in your invitation code to proceed.</h3>
+				<h1>Get your own secure<br />email account!</h1>
 				
 				<form onSubmit={this.handleSubmit}>
-					<input ref="token" type="text" placeholder="invitation code"
+					<input ref="token" type="text" placeholder="Paste your invitation code"
 						maxLength="20" onInput={this.tokenChange}
 						onPropertyChange={this.tokenChange} />
 					<button ref="submit" type="submit" disabled>
-						<i className="fa fa-lock"></i>
+						Verify
 					</button>
 				</form>
+
+				<div className="noInvite">
+					<a href="https://mail.lavaboom.com/secure">No invite code yet? Get one here!</a>
+				</div>
 			</div>
 		);
 	}
