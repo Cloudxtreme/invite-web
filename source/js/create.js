@@ -155,8 +155,7 @@ module.exports = React.createClass({
 		return (
 			<div className="create">
 				<h2>
-					Please type in your alternative e-mail address<br/>
-					and choose a username for your account
+					Please type in your alternative email address and choose a username for your account
 				</h2>
 
 				<form onSubmit={this.handleSubmit}>

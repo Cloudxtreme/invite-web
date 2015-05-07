@@ -1,0 +1,93 @@
+// colors
+@lava: #3BBADC;
+@lava-dark: darken(@lava, 30%);
+@lava-light: lighten(@lava, 5%);
+@lava-lighter: lighten(@lava, 15%);
+@lava-gray: #3A4045;
+@lava-gray-light: #BCBBC0;
+@lava-gray-lighter: #D9D9D9;
+@lava-gray-lightest: lighten(@lava-gray-lighter, 10%);
+@lava-gray-dark: #61666F;
+@lava-gray-darkest: darken(@lava-gray-dark, 20%);
+
+//login colors
+@lava-login-lava: @lava;				//Blue #3BBADC	
+@lava-login-gray-lightest: lighten(#CCCBD0, 45%);
+@lava-login-gray-lighter: #CCCBD0;		//very light grey (input text) #CCCBD0
+@lava-login-gray-light: #9D9FA3;		//light grey (Headline) #9D9FA3
+@lava-login-gray: #4C535C;				//medium grey (defaut text in fields) #4C535C
+@lava-login-gray-dark: #33373C;			//dark grey (Input field) #33373C
+@lava-login-gray-darker: #282B2F;		//very dark grey (background) #282B2F
+@lava-login-box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.1);
+@lava-login-error-bg: #4A3936;
+
+@lava-fadeouts: fadeout(@lava-gray-darkest, 40%);
+
+//bootstrap overrides
+@link-color: @lava;
+@text-muted: @lava-gray-light;
+
+//borders
+@lava-border-color: 		@lava-gray-lighter;
+@border-site-wide: 			1pt solid @lava-border-color;
+@border-radius-base:        2px;
+@border-radius-large:       3px;
+@border-radius-small:       1px;
+
+//grid system - we're going 24 because we're THAT crazy
+@grid-columns:              24;
+@grid-gutter-width:         20px;
+
+
+@base-rem: 10px;
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+@font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+@light-font-weight: 100;
+@base-font-weight: 300;
+
+@compose-font-size: 1.3rem;
+@compose-cross-hover-color: #DAD9D9;
+
+@lava-form-line-height: 4.4rem;
+@lava-form-padding: 1.1rem;
+
+
+// MIXINS
+.border-reset{
+	border: 0;
+	outline: 0;
+	box-shadow: none;
+	&:focus{
+		box-shadow: none;
+		border: 0;
+		outline: 0;
+	}
+}
+
+.lava-font{
+	font-weight: @base-font-weight !important;
+	.medium{
+		font-weight: 400;
+	}
+	strong, .strong{
+		font-weight: 500;
+	}
+	@media (-webkit-min-device-pixel-ratio: 2), 
+		(min-resolution: 192dpi) { 
+		font-weight: @light-font-weight !important;
+		.medium{
+			font-weight: 300;
+		}
+		strong, .strong{
+			font-weight: 400;
+		}
+	}
+}

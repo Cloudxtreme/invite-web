@@ -1,11 +1,67 @@
-@import url(//fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(//fonts.googleapis.com/css?family=Roboto:100,300);
+.border-reset {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+.border-reset:focus {
+  box-shadow: none;
+  border: 0;
+  outline: 0;
+}
+.lava-font {
+  font-weight: 300 !important;
+}
+.lava-font .medium {
+  font-weight: 400;
+}
+.lava-font strong,
+.lava-font .strong {
+  font-weight: 500;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .lava-font {
+    font-weight: 100 !important;
+  }
+  .lava-font .medium {
+    font-weight: 300;
+  }
+  .lava-font strong,
+  .lava-font .strong {
+    font-weight: 400;
+  }
+}
+html,
+:root {
+  font-size: 10px;
+}
 body {
   background: #282b2f;
   color: #9d9fa3;
+  font-weight: 300 !important;
+  -webkit-font-smoothing: antialiased;
+}
+body .medium {
+  font-weight: 400;
+}
+body strong,
+body .strong {
+  font-weight: 500;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    font-weight: 100 !important;
+  }
+  body .medium {
+    font-weight: 300;
+  }
+  body strong,
+  body .strong {
+    font-weight: 400;
+  }
 }
 * {
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
   box-sizing: border-box;
 }
 .container-welcome {
@@ -28,25 +84,25 @@ body {
 }
 .container {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+  text-align: center;
+  font-size: 2rem;
 }
 .container img {
   width: 240px;
   display: block;
   margin: 0 auto;
-  margin-bottom: -40px;
-}
-.container h1,
-.container h2,
-.container h3 {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
+  margin-bottom: -22px;
+  -ms-filter: drop-shadow(0 1px 15px rgba(0, 0, 0, 0.7));
+  -o-filter: drop-shadow(0 1px 15px rgba(0, 0, 0, 0.7));
+  -moz-filter: drop-shadow(0 1px 15px rgba(0, 0, 0, 0.7));
+  -webkit-filter: drop-shadow(0 1px 15px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0 1px 15px rgba(0, 0, 0, 0.7));
 }
 .container h1 {
   font-size: 34px;
@@ -57,21 +113,89 @@ body {
 .container h3 {
   font-size: 20px;
 }
-input {
-  height: 43px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.3333333;
-  border-radius: .2rem;
-  background: #33373c;
+h1,
+h2,
+h3,
+input,
+button {
+  margin-bottom: 2.2rem;
+  margin: 0 auto 2.2rem;
+  padding: 0px;
+  font-weight: 300 !important;
+  max-width: 356px;
+}
+h1 .medium,
+h2 .medium,
+h3 .medium,
+input .medium,
+button .medium {
+  font-weight: 400;
+}
+h1 strong,
+h2 strong,
+h3 strong,
+input strong,
+button strong,
+h1 .strong,
+h2 .strong,
+h3 .strong,
+input .strong,
+button .strong {
+  font-weight: 500;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  h1,
+  h2,
+  h3,
+  input,
+  button {
+    font-weight: 100 !important;
+  }
+  h1 .medium,
+  h2 .medium,
+  h3 .medium,
+  input .medium,
+  button .medium {
+    font-weight: 300;
+  }
+  h1 strong,
+  h2 strong,
+  h3 strong,
+  input strong,
+  button strong,
+  h1 .strong,
+  h2 .strong,
+  h3 .strong,
+  input .strong,
+  button .strong {
+    font-weight: 400;
+  }
+}
+input,
+button {
   border: 0;
+  outline: 0;
   box-shadow: none;
+  border-radius: .2rem;
+  font-size: 2rem;
+  padding: 1.2rem 1.1rem;
   color: #cccbd0;
-  margin: 0px;
-  padding-bottom: 10px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 10px;
+  background: #33373c;
+  display: block;
+  width: 100%;
+}
+input:focus,
+button:focus {
+  box-shadow: none;
+  border: 0;
+  outline: 0;
+}
+button {
+  color: #FFF;
+  background: #3bbadc;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.65);
+}
+input {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -82,67 +206,28 @@ input[readonly] {
   opacity: 0.6;
 }
 input.invalid {
-  box-shadow: 0 0 6px 6px rgba(255, 0, 0, 0.1);
+  box-shadow: 0 0 6px 6px rgba(155, 0, 0, 0.1);
 }
+input::-webkit-input-placeholder,
+input:-ms-input-placeholder,
 input::-moz-placeholder {
-  color: #596066;
-  opacity: 1;
-}
-input:-ms-input-placeholder {
-  color: #596066;
-}
-input::-webkit-input-placeholder {
-  color: #596066;
-}
-button {
-  background-color: #3bbadc;
-  box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
-  color: #FFF;
-  border-radius: .2rem;
-  border: 0;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.3333333;
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  white-space: nowrap;
-  margin: 0px;
+  color: lava-login-gray;
 }
 button:disabled {
   opacity: 0.6;
 }
-.welcome form,
-.create form {
-  display: block;
+a {
+  color: #3bbadc;
+}
+form {
   width: 356px;
   margin: 0 auto;
-  margin-top: 15px;
-}
-.welcome input {
-  width: 100%;
-}
-.welcome button {
-  height: 43px;
-  width: 100%;
-  margin-top: 15px;
-}
-.welcome .noInvite {
-  text-align: center;
-  margin-top: 15px;
-}
-.welcome .noInvite a {
-  color: #32a4c1;
-  font-size: 16px;
 }
 .create input {
   width: 346px;
-  margin-bottom: 18px;
 }
 .create button {
   width: 346px;
-  height: 43px;
 }
 .container-auth input,
 .container-auth button {
