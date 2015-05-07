@@ -1,13 +1,18 @@
-@import url(//fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(//fonts.googleapis.com/css?family=Roboto:100,300);
+@import 'lavaboom-variables.less';
 
+html, :root{
+	font-size: 10px;
+}
 body {
-	background: #282b2f;
+	background: @lava-login-gray-darker;
 	color: #9d9fa3;
+	.lava-font();
+	-webkit-font-smoothing: antialiased;
 }
 
 * {
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
 	box-sizing: border-box;
 }
 
@@ -40,7 +45,7 @@ body {
 
 .container {
 	position: absolute;
-	top: 50%;
+	top: 45%;
 	left: 50%;
 
 	-webkit-transition: all 1s ease-in-out;
@@ -48,17 +53,21 @@ body {
 	-o-transition: all 1s ease-in-out;
 	transition: all 1s ease-in-out;
 
+	text-align: center;
+
+	font-size: 1.4rem;
+
 	img {
 		width: 240px;
 		display: block;
 		margin: 0 auto;
 		margin-bottom: -40px;
-	}
 
-	h1, h2, h3 {
-		margin: 0px;
-		padding: 0px;
-		text-align: center;
+		-ms-filter: drop-shadow(0 0 .85rem rgba(0, 0, 0, 0.75));
+		-o-filter: drop-shadow(0 0 .85rem rgba(0, 0, 0, 0.75));
+		-moz-filter: drop-shadow(0 0 .85rem rgba(0, 0, 0, 0.75));
+		-webkit-filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.75));
+		filter: drop-shadow(0 0 .85rem rgba(0, 0, 0, 0.75));
 	}
 
 	h1 {
@@ -74,24 +83,31 @@ body {
 	}
 }
 
-input {
-	height: 43px;
 
-	padding: 10px 16px;
-	font-size: 18px;
-	line-height: 1.3333333;
+h1, h2, h3, input, button{
+	margin-bottom: 2.2rem;
+	margin: 0 auto 2.2rem; padding: 0px; //reset
+	.lava-font();
+	max-width: 356px;
+}
+input, button{
+	.border-reset();
 	border-radius: .2rem;
-	background: #33373c;
-	border: 0;
-	box-shadow: none;
-	color: #cccbd0;
+	font-size: 2.2rem;
+	padding: 1.1rem;
+	color: @lava-login-gray-lighter;
+	background: @lava-login-gray-dark;
+	display: block;
+	width: 100%;
+}
 
-	margin: 0px;
+button {
+	color: #FFF;
+	background: @lava;
+	box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.1);
+}
 
-	padding-bottom: 10px;
-	padding-left: 16px;
-	padding-right: 16px;
-	padding-top: 10px;
+input {
 
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
@@ -107,81 +123,36 @@ input {
 	}
 }
 
-input::-moz-placeholder {
-	color: #596066;
-	opacity: 1;
-}
-
-input:-ms-input-placeholder {
-	color: #596066;
-}
-
-input::-webkit-input-placeholder {
-	color: #596066;
+input::-webkit-input-placeholder, input:-ms-input-placeholder, input::-moz-placeholder {
+	color: lava-login-gray;
 }
 
 button {
-	background-color: #3bbadc;
-	box-shadow: 0 0 6px 6px rgba(0,0,0,.1);
-	color: #FFF;
-	border-radius: .2rem;
-	border: 0;
-	padding: 10px 16px;
-	font-size: 18px;
-	line-height: 1.3333333;
-	text-align: center;
-	vertical-align: middle;
-	touch-action: manipulation;
-	cursor: pointer;
-	white-space: nowrap;
-	margin: 0px;
-
 	&:disabled {
 		opacity: 0.6;
 	}
 }
 
-.welcome, .create {
-	form {
-		display: block;
-		width: 356px; 
-		margin: 0 auto;
-		margin-top: 15px;
-	}
+a {
+	color: @lava;
+}
+
+form {
+	width: 356px;
+	margin: 0 auto;
 }
 
 .welcome {
-	input {
-		width: 100%;
-	}
 
-	button {
-		height: 43px;
-		width: 100%;
-
-		margin-top: 15px;
-	}
-
-	.noInvite {	
-		text-align: center;
-		margin-top: 15px;
-
-		a {
-			color: #32a4c1;
-			font-size: 16px;
-		}	
-	}
 }
 
 .create {
 	input {
 		width: 346px;
-		margin-bottom: 18px;
 	}
 
 	button {
 		width: 346px;
-		height: 43px;
 	}
 }
 
