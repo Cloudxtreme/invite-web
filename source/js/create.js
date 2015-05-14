@@ -142,7 +142,7 @@ module.exports = React.createClass({
 				var result = JSON.parse(buffer);
 
 				// Change window's location
-				window.location = "https://mail.lavaboom.com/verifyInvite/" + username + "/" + result.code;
+				window.location = "https://mail.lavaboom.com/verify/" + username + "/" + result.code;
 			})
 		}).end(JSON.stringify({
 			"token":    this.getParams().token,
