@@ -1,6 +1,6 @@
 var React  = require("react");
 var Router = require("react-router");
-var http   = require("http");
+var https  = require("https-browserify");
 
 module.exports = React.createClass({
 	mixins: [Router.Navigation],
@@ -48,11 +48,11 @@ module.exports = React.createClass({
 		} else {
 			self.setButtonState("loading");
 
-			http.request({
+			https.request({
 				method: "POST",
 				path: "/check",
-				host: "127.0.0.1",
-				port: 8000,
+				host: "invite-api.lavaboom.com",
+				port: 443,
 			}, function(res) {
 				// Gather the response
 				var buffer = "";

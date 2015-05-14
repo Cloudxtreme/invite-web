@@ -1,6 +1,6 @@
 var React  = require("react");
 var Router = require("react-router");
-var http   = require("http");
+var https  = require("https-browserify");
 
 function validateEmail(email) {
 	var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -13,11 +13,11 @@ function validateUsername(name) {
 }
 
 function checkFree(token, username, email, callback) {
-	http.request({
+	https.request({
 		method: "POST",
 		path:   "/free",
-		host:   "localhost",
-		port:   8000,
+		host:   "invite-api.lavaboom.com",
+		port: 443,
 	}, function(res) {
 		var buffer = "";
 		res.on("data", function(buf) { buffer += buf; });
@@ -60,11 +60,11 @@ module.exports = React.createClass({
 		var self = this;
 		var params = this.getParams();
 
-		http.request({
+		https.request({
 			method: "POST",
 			path:   "/check",
-			host:   "localhost",
-			port:   8000,
+			host:   "invite-api.lavaboom.com",
+			port: 443,
 		}, function(res) {
 			// Gather the response
 			var buffer = "";
@@ -127,11 +127,11 @@ module.exports = React.createClass({
 
 		var username = this.refs.username.getDOMNode().value;
 
-		http.request({
+		https.request({
 			method: "POST",
 			path: "/create",
-			host: "localhost",
-			port:   8000,
+			host: "invite-api.lavaboom.com",
+			port: 443,
 		}, function(res) {
 			// Gather the response
 			var buffer = "";

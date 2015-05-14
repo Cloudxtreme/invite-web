@@ -1,6 +1,5 @@
 var React = require('react');
 var Router = require('react-router');
-var http = require('http');
 
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
