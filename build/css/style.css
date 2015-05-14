@@ -82,6 +82,13 @@ body .strong {
   margin-left: -178px;
   margin-top: -235px;
 }
+.container-dashboard {
+  width: 1280px;
+  height: 620px;
+  margin-left: -640px;
+  margin-top: -310px;
+  padding-top: 20px;
+}
 .container {
   position: absolute;
   top: 45%;

@@ -1,6 +1,3 @@
-FROM lavab/bati-nginx
-
+FROM kyma/docker-nginx
 ADD build/ /var/www
-ADD start.sh /
-
-CMD /start.sh
+CMD 'nginx'

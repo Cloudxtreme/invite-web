@@ -1,2 +1,0 @@
-bati &
-nginx
