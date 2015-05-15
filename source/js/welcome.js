@@ -7,16 +7,25 @@ module.exports = React.createClass({
 
 	setButtonState: function(b) {
 		var submitNode = this.refs.submit.getDOMNode();
+		var tokenNode = this.refs.token.getDOMNode();
+		var tokenErrorNode = this.refs.tokenError.getDOMNode();
+		var tokenContainerNode = this.refs.tokenContainer.getDOMNode();
 
 		if (b == "invalid") {
 			submitNode.disabled = true;
-			submitNode.innerHTML = '<i class="fa fa-lock"></i>';
+			tokenNode.className = "invalid";
+			tokenErrorNode.className = "token-error";
+			tokenContainerNode.className = "input-container invalid";
 		} else if (b == "valid") {
 			submitNode.disabled = false;
-			submitNode.innerHTML = '<i class="fa fa-unlock-alt"></i>';
+			tokenNode.className = "valid";
+			tokenErrorNode.className = "token-error hidden";
+			tokenContainerNode.className = "input-container valid";
 		} else if (b == "loading") {
 			submitNode.disabled = true;
-			submitNode.innerHTML = '<i class="fa fa-cog fa-spin"></i>';
+			tokenNode.className = "valid";
+			tokenErrorNode.className = "token-error hidden";
+			tokenContainerNode.className = "input-container loading";
 		}
 	},
 	handleSubmit: function(e) {
@@ -87,9 +96,12 @@ module.exports = React.createClass({
 				<h1>Get your own secure<br />email account!</h1>
 				
 				<form onSubmit={this.handleSubmit}>
-					<input ref="token" type="text" placeholder="Paste your invitation code"
-						maxLength="20" onInput={this.tokenChange}
-						onPropertyChange={this.tokenChange} />
+					<div className="input-container" ref="tokenContainer">
+						<input ref="token" type="text" placeholder="Paste your invitation code"
+							maxLength="20" onInput={this.tokenChange}
+							onPropertyChange={this.tokenChange} />
+					</div>
+					<span className="token-error hidden" ref="tokenError">This invitation code is not valid. Typo?</span>
 					<button ref="submit" type="submit" disabled>
 						Verify
 					</button>

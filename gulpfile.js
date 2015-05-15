@@ -52,7 +52,7 @@ gulp.task('serve', function() {
 gulp.task('watch', function() {
 	gulp.watch('./source/js/**/*.js', ['browserify']);
 	gulp.watch('./source/less/**/*.less', ['less']);
-	gulp.watch('./source/img/**/*', ['images']);
+	gulp.watch('./source/img/*', ['images']);
 	gulp.watch('./source/**/*.html', ['html']);
 });
 
