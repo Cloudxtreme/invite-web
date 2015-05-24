@@ -56,6 +56,6 @@ gulp.task('watch', function() {
 	gulp.watch('./source/**/*.html', ['html']);
 });
 
-gulp.task('build', ['browserify', 'html']);
+gulp.task('build', ['browserify', 'html', 'less', 'images']);
 
 gulp.task('default', ['watch', 'browserify', 'html', 'less', 'images', 'serve']);
